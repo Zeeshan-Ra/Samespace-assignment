@@ -51,6 +51,7 @@ body {
   background: linear-gradient(108deg, rgba(51, 66, 94, 0.60) 2.46%, rgba(0, 0, 0, 0.60) 99.84%), #000;
   box-sizing: border-box;
   display: flex;
+  flex-direction: row;
   padding: 30px;
   min-height: 100vh;
 }
@@ -67,11 +68,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-height: calc(100vh - 60px);
 }
 
 .homepage .middle .topbar {
   display: flex;
-  flex: start;
   align-items: center;
   gap: 40px;
 }
@@ -81,7 +82,6 @@ body {
   color: #FFF;
   font-family: Inter;
   font-size: 24px;
-  font-style: normal;
   font-weight: 700;
   line-height: 32px;
   cursor: pointer;
@@ -100,7 +100,6 @@ body {
   background: rgba(255, 255, 255, 0.08);
   color: #FFF;
   font-size: 18px;
-  font-style: normal;
   font-weight: 400;
   line-height: 28px;
   border: none;
@@ -112,7 +111,6 @@ body {
   background: none;
   color: #FFF;
   font-size: 18px;
-  font-style: normal;
   font-weight: 400;
   line-height: 28px;
   outline: none;
@@ -126,12 +124,11 @@ body {
 }
 
 .homepage .middle .list_item_container {
-  justify-content: space-between;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  cursor: pointer;
-  max-height: calc(100vh - 250px);
-  overflow: scroll;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .homepage .middle .list_item_container .list_item {
@@ -139,7 +136,7 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  width: 350px;
+  width: 100%;
 }
 
 .homepage .middle .list_item_container .list_item img {
@@ -148,18 +145,14 @@ body {
 
 .homepage .middle .list_item_container .list_item .song_name {
   color: #FFF;
-  font-family: Inter;
   font-size: 18px;
-  font-style: normal;
   font-weight: 400;
   line-height: 24px;
 }
 
 .homepage .middle .list_item_container .list_item .artist_name {
   color: #FFF;
-  font-family: Inter;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 24px;
   opacity: 0.6;
@@ -172,7 +165,9 @@ body {
 
 .homepage .media-player {
   width: 45%;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0 60px;
 }
 
@@ -206,7 +201,6 @@ body {
 .homepage .media-player .played_songs_details .song_played {
   color: #FFF;
   font-size: 32px;
-  font-style: normal;
   font-weight: 700;
   line-height: 36px;
   margin-bottom: 8px;
@@ -215,7 +209,6 @@ body {
 .homepage .media-player .played_songs_details .artist_played {
   color: #FFF;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
   line-height: 24px;
   opacity: 0.6;
@@ -242,7 +235,7 @@ body {
 @media (max-width: 1024px) {
   .homepage {
     padding: 20px;
-    display: block;
+    flex-direction: column;
   }
 
   .homepage .sidebar {
@@ -252,49 +245,35 @@ body {
 
   .homepage .middle {
     width: 100%;
+    max-height: calc(100vh - 120px);
   }
 
   .homepage .media-player {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 50% 0;
+    margin: 20px 0;
   }
 
   .homepage .media-player .rhap_container {
     width: 240px;
   }
 
-  .homepage .media-player .cover_art_container {
-    margin: 32px 0 12px 0;
-  }
-
   .homepage .media-player .cover_art_container .cover_art {
-    border-radius: 8px;
     width: 240px;
     height: 240px;
   }
 
   .show_list {
     display: flex;
-    flex: end;
     align-items: center;
     color: #fff;
     border: 1px solid #868686;
     padding: 8px;
     border-radius: 8px;
     width: fit-content;
-    float: right;
     margin: 8px 0;
   }
 
   .display_none {
     display: none !important;
-  }
-
-  .list_item_container {
-    max-height: 100vh;
   }
 }
